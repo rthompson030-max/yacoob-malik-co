@@ -256,6 +256,120 @@
                 flex-direction: column;
             }
         }
+
+        /* ── Tax & Compliance Section — scoped addition only ── */
+        .tax-compliance-section {
+            background-color: #edf4f6;
+            padding: 80px 0;
+        }
+
+        .tax-compliance-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .tax-compliance-image img {
+            width: 100%;
+            height: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .tax-compliance-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tax-compliance-heading {
+            font-size: 2.75rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: #1a3a5c;
+            margin: 0;
+        }
+
+        .tax-compliance-body {
+            font-size: 1rem;
+            line-height: 1.65;
+            color: #4a5568;
+            margin: 0;
+            max-width: 400px;
+        }
+
+        .tax-compliance-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .tax-compliance-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            color: #2d3748;
+        }
+
+        .tax-compliance-check {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            color: #2a7f8f;
+        }
+
+        .tax-compliance-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+            padding: 14px 28px;
+            background-color: #2a7f8f;
+            color: #ffffff;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            align-self: flex-start;
+            transition: background-color 0.2s ease;
+        }
+
+        .tax-compliance-btn:hover {
+            background-color: #1f6370;
+        }
+
+        /* Mobile: stack image above text */
+        @media (max-width: 768px) {
+            .tax-compliance-inner {
+                grid-template-columns: 1fr;
+                gap: 36px;
+                padding: 0 20px;
+            }
+
+            .tax-compliance-section {
+                padding: 56px 0;
+            }
+
+            .tax-compliance-heading {
+                font-size: 2rem;
+            }
+
+            .tax-compliance-image img {
+                max-height: 280px;
+            }
+        }
+
+        /* ── End Tax & Compliance Section ── */
     </style>
 </head>
 
@@ -268,6 +382,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#tax">Tax</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#contact" class="btn btn-navy" style="color: white;">Request a Callback</a></li>
@@ -356,6 +471,51 @@
                 </div>
             </div>
         </section>
+
+        <!-- TAX & COMPLIANCE SECTION — NEW ADDITION ONLY -->
+        <section id="tax" class="tax-compliance-section">
+            <div class="tax-compliance-inner">
+                <div class="tax-compliance-content">
+                    <h2 class="tax-compliance-heading">Tax &amp; Compliance</h2>
+                    <p class="tax-compliance-body">
+                        Reliable tax and regulatory support to reduce risk and ensure peace of mind.
+                    </p>
+                    <ul class="tax-compliance-list">
+                        <li>
+                            <svg class="tax-compliance-check" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            Tax preparation and filing
+                        </li>
+                        <li>
+                            <svg class="tax-compliance-check" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            Compliance support
+                        </li>
+                        <li>
+                            <svg class="tax-compliance-check" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            Tax efficiency advisory
+                        </li>
+                    </ul>
+                    <a href="#" class="tax-compliance-btn">View More &#8599;</a>
+                </div>
+
+                <div class="tax-compliance-image">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
+                        alt="Tax document with hand writing figures" loading="lazy" />
+                </div>
+            </div>
+        </section>
+        <!-- END TAX & COMPLIANCE SECTION -->
 
         <!-- SECTION: Testimonials -->
         <section id="testimonials" style="padding: 80px 20px; background: white;">
