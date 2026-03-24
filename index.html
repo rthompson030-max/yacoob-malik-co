@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yacoob Malik &amp; Co. | Professional UK Accountancy Firm</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Colors */
+            --navy: #1a2e4a;
+            --white: #ffffff;
+            --light-grey: #f4f4f4;
+            --teal: #1a7a6e;
+            --text-dark: #333333;
+            --text-light: #555555;
+            --border-color: #e0e0e0;
+
+            /* Typography */
+            --font-main: 'Inter', sans-serif;
+
+            /* Spacing */
+            --section-padding: 80px 20px;
+            --max-width: 1200px;
+
+            /* Styles */
+            --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+        }
+
+        /* Base Reset */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-weight: 600;
+            border-radius: var(--border-radius-sm);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            font-size: 1rem;
+            border: none;
+        }
+
+        .btn-navy {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        .btn-navy:hover {
+            background-color: #122136;
+        }
+
+        .btn-teal {
+            background-color: var(--teal);
+            color: var(--white);
+        }
+
+        .btn-teal:hover {
+            background-color: #125e54;
+        }
+
+        /* SECTION: Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+
+        /* SECTION: Hero */
+        .hero {
+            background-color: var(--light-grey);
+            padding: var(--section-padding);
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .hero-trust {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .hero-image-wrapper {
+            flex: 1;
+        }
+
+        .hero-img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        /* SECTION: Services */
+        .services {
+            background-color: var(--white);
+            padding: var(--section-padding);
+        }
+
+        .section-headline {
+            text-align: center;
+            font-size: 2.25rem;
+            color: var(--navy);
+            margin-bottom: 56px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: transparent;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* SECTION: About */
+        .about {
+            background-color: var(--light-grey);
+            padding: var(--section-padding);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        /* SECTION: Footer */
+        footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 64px 20px 32px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">Yacoob Malik &amp; Co.</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn btn-navy" style="color: white;">Request a Callback</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECTION: Hero -->
+        <section id="home" class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div
+                        style="background: var(--navy); color: white; display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 16px;">
+                        Manchester's Trusted Accountants</div>
+                    <h1>Expert accounting advice — tailored for your business</h1>
+                    <p>We provide expert accountancy, bookkeeping, payroll and tax services to small and medium-sized
+                        businesses across the UK.</p>
+                    <a href="#contact" class="btn btn-teal">Get a Free Consultation</a>
+                    <div class="hero-trust">
+                        <span style="color: #f6ad55;">★★★★★</span>
+                        <span>5.0 ★ Rating on Google</span>
+                    </div>
+                </div>
+                <div style="flex: 1;">
+                    <img src="about-team.png" alt="Professional accounting team working in modern office"
+                        style="width: 100%; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Services -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-headline">Everything your business needs, under one roof</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>Tax Returns &amp; Self-Assessment</h3>
+                        <p>We handle personal and corporate tax returns accurately and on time, so you never face an
+                            HMRC penalty.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📒</div>
+                        <h3>Bookkeeping</h3>
+                        <p>We keep your accounts clean, current and compliant &mdash; giving you a clear picture of your
+                            financial health every month.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💼</div>
+                        <h3>Payroll Management</h3>
+                        <p>From RTI submissions to auto-enrolment, we manage your payroll so you can focus on your team,
+                            not the admin.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3>Business Advisory</h3>
+                        <p>Whether you're starting out or scaling up, we provide practical financial guidance to help
+                            you make confident decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: About -->
+        <section id="about" class="about">
+            <div class="container about-grid">
+                <div style="flex: 1;">
+                    <img src="pexels-shootsaga-31851560.png" alt="Our Professional Accounting Team"
+                        style="width: 100%; height: 400px; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                </div>
+                <div>
+                    <h2 style="font-size: 2.25rem; color: var(--navy); margin-bottom: 24px;">A firm that genuinely cares
+                        about your success</h2>
+                    <p>We're not a faceless corporation. We're a team of qualified, approachable accountants who take
+                        the time to understand your business. With over 20 years of experience serving UK businesses
+                        &mdash; from sole traders to growing SMEs &mdash; we pride ourselves on clear advice,
+                        transparent pricing, and being available when you need us.</p>
+                    <ul style="list-style: none; margin-top: 24px;">
+                        <li style="margin-bottom: 12px; font-weight: 500;">✓ AAT &amp; ICAEW qualified</li>
+                        <li style="margin-bottom: 12px; font-weight: 500;">✓ Fixed monthly fees &mdash; no surprises
+                        </li>
+                        <li style="margin-bottom: 12px; font-weight: 500;">✓ Dedicated account manager</li>
+                        <li style="margin-bottom: 12px; font-weight: 500;">✓ MTD-ready and fully digital</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Testimonials -->
+        <section id="testimonials" style="padding: 80px 20px; background: white;">
+            <div class="container">
+                <h2 class="section-headline">What our clients say</h2>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+                    <div style="padding: 32px; border: 1px solid var(--border-color); border-radius: 12px;">
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p style="font-style: italic; margin: 16px 0;">"Switching to Yacoob Malik &amp; Co. was the best
+                            decision I made for my business. They sorted out two years of backlog and haven't missed a
+                            deadline since."</p>
+                        <strong>James R., Construction</strong>
+                    </div>
+                    <div style="padding: 32px; border: 1px solid var(--border-color); border-radius: 12px;">
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p style="font-style: italic; margin: 16px 0;">"Finally, an accountant who explains things in
+                            plain English. I always know exactly where my business stands."</p>
+                        <strong>Sarah M., Retail</strong>
+                    </div>
+                    <div style="padding: 32px; border: 1px solid var(--border-color); border-radius: 12px;">
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p style="font-style: italic; margin: 16px 0;">"Their payroll service alone saves me hours every
+                            month. Reliable, friendly, and great value."</p>
+                        <strong>David T., Hospitality</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CTA -->
+        <section style="background: var(--navy); color: white; text-align: center; padding: 80px 20px;">
+            <div class="container">
+                <h2 style="font-size: 2.5rem; margin-bottom: 16px;">Ready to take control of your finances?</h2>
+                <p style="margin-bottom: 32px; opacity: 0.9;">Book a free, no-obligation consultation with one of our
+                    experts today.</p>
+                <div style="display: flex; gap: 20px; justify-content: center;">
+                    <a href="#contact" class="btn" style="background: white; color: var(--navy);">Request a Callback</a>
+                    <a href="#contact" class="btn btn-teal">Send Us a Message</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Contact -->
+        <section id="contact" style="padding: 80px 20px; background: var(--light-grey);">
+            <div class="container"
+                style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 64px; align-items: center;">
+                <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: var(--shadow-subtle);">
+                    <form onsubmit="event.preventDefault(); alert('Enquiry sent!');">
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Full Name</label>
+                            <input type="text"
+                                style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px;">
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Email</label>
+                            <input type="email"
+                                style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px;">
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">How can we
+                                help?</label>
+                            <select
+                                style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px;">
+                                <option>Tax Returns</option>
+                                <option>Bookkeeping</option>
+                                <option>Payroll</option>
+                                <option>Business Advisory</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Message</label>
+                            <textarea
+                                style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; height: 120px;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-navy" style="width: 100%;">Send Enquiry</button>
+                    </form>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 32px; text-align: center;">
+                    <div>
+                        <strong>📞 0161 566 5934</strong>
+                        <p>hello@yacoobmalik.co.uk</p>
+                    </div>
+                    <div>
+                        <strong>📍 884 Hyde Rd, Gorton, Manchester M18 7LL</strong>
+                        <p>Office hours: Mon–Fri, 9am–5:30pm</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <p>&copy; 2026 Yacoob Malik &amp; Co. Ltd. All rights reserved.</p>
+            <div style="display: flex; gap: 24px;">
+                <a href="#" style="color: #a0aec0;">Privacy Policy</a>
+                <a href="#" style="color: #a0aec0;">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
