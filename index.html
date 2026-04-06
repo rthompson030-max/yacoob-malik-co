@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yacoob Malik &amp; Co. | Professional UK Accountancy Firm</title>
+    <title>Yacoob Malik & Co. | Manchester Accountants | Tax & Business Advisory</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,6 @@
 
     <style>
         :root {
-            /* Colors */
             --navy: #1a2e4a;
             --white: #ffffff;
             --light-grey: #f4f4f4;
@@ -20,22 +19,15 @@
             --text-dark: #333333;
             --text-light: #555555;
             --border-color: #e0e0e0;
-
-            /* Typography */
             --font-main: 'Inter', sans-serif;
-
-            /* Spacing */
             --section-padding: 80px 20px;
             --max-width: 1200px;
-
-            /* Styles */
             --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
             --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
             --border-radius-sm: 4px;
             --border-radius-md: 8px;
         }
 
-        /* Base Reset */
         *,
         *::before,
         *::after {
@@ -46,6 +38,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -54,6 +47,8 @@
             background-color: var(--white);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            padding-top: 80px;
         }
 
         img {
@@ -71,7 +66,6 @@
             margin: 0 auto;
         }
 
-        /* Buttons */
         .btn {
             display: inline-block;
             padding: 12px 28px;
@@ -102,13 +96,20 @@
             background-color: #125e54;
         }
 
-        /* SECTION: Navigation */
         header {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             background-color: var(--white);
             border-bottom: 1px solid var(--border-color);
-            z-index: 100;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: var(--shadow-subtle);
+            border-bottom-color: transparent;
         }
 
         .nav-container {
@@ -143,7 +144,6 @@
             color: var(--teal);
         }
 
-        /* SECTION: Hero */
         .hero {
             background-color: var(--light-grey);
             padding: var(--section-padding);
@@ -183,54 +183,96 @@
             font-weight: 500;
         }
 
-        .hero-image-wrapper {
-            flex: 1;
-        }
-
-        .hero-img {
-            width: 100%;
-            border-radius: 16px;
-            box-shadow: var(--shadow-subtle);
-        }
-
-        /* SECTION: Services */
+        /* SERVICES SECTION - 3 CARD GRID */
         .services {
-            background-color: var(--white);
-            padding: var(--section-padding);
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            background: #E8EEEE;
         }
 
-        .section-headline {
-            text-align: center;
-            font-size: 2.25rem;
-            color: var(--navy);
-            margin-bottom: 56px;
-        }
-
-        .services-grid {
+        .services__grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 32px;
         }
 
         .service-card {
-            padding: 40px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius-md);
-            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .service-card:hover {
-            box-shadow: var(--shadow-hover);
-            border-color: transparent;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
         }
 
-        .service-icon {
-            font-size: 2.5rem;
+        .service-card__image {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-card__content {
+            padding: 28px 24px 32px;
+        }
+
+        .service-card__title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1E5C6B;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .service-card__description {
+            color: #5A5A5A;
             margin-bottom: 20px;
-            display: inline-block;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        /* SECTION: About */
+        .service-card__list {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .service-card__list li {
+            margin-bottom: 10px;
+            padding-left: 24px;
+            position: relative;
+            font-size: 0.9rem;
+            color: #3a3a3a;
+        }
+
+        .service-card__list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 700;
+        }
+
+        .service-card__btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background: #1E6875;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .service-card__btn:hover {
+            background: #0f4f5a;
+        }
+
         .about {
             background-color: var(--light-grey);
             padding: var(--section-padding);
@@ -243,21 +285,6 @@
             align-items: center;
         }
 
-        /* SECTION: Footer */
-        footer {
-            background-color: var(--navy);
-            color: var(--white);
-            padding: 64px 20px 32px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-container {
-                flex-direction: column;
-            }
-        }
-
-        /* ── Tax & Compliance Section — scoped addition only ── */
         .tax-compliance-section {
             background-color: #edf4f6;
             padding: 80px 0;
@@ -273,10 +300,11 @@
             align-items: center;
         }
 
-        .tax-compliance-image img {
+        .tax-compliance-image img,
+        .tax-compliance-image video {
             width: 100%;
             height: 100%;
-            max-height: 520px;
+            max-height: 600px;
             object-fit: cover;
             border-radius: 12px;
             display: block;
@@ -304,30 +332,6 @@
             max-width: 400px;
         }
 
-        .tax-compliance-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .tax-compliance-list li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1rem;
-            color: #2d3748;
-        }
-
-        .tax-compliance-check {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
-            color: #2a7f8f;
-        }
-
         .tax-compliance-btn {
             display: inline-flex;
             align-items: center;
@@ -344,32 +348,65 @@
             transition: background-color 0.2s ease;
         }
 
-        .tax-compliance-btn:hover {
-            background-color: #1f6370;
+        footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 64px 20px 32px;
         }
 
-        /* Mobile: stack image above text */
-        @media (max-width: 768px) {
+        @media (max-width: 960px) {
+            .services__grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .services {
+                padding: 60px 20px;
+            }
+            .services__grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .hero-container {
+                flex-direction: column;
+                gap: 32px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
             .tax-compliance-inner {
                 grid-template-columns: 1fr;
                 gap: 36px;
                 padding: 0 20px;
             }
-
-            .tax-compliance-section {
-                padding: 56px 0;
+            .nav-container {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
             }
-
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 16px;
+            }
+            .testimonials-grid,
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+            }
+            .hero-content h1 {
+                font-size: 2.25rem !important;
+            }
             .tax-compliance-heading {
-                font-size: 2rem;
+                font-size: 2.25rem !important;
             }
-
-            .tax-compliance-image img {
-                max-height: 280px;
+            .service-card__title {
+                font-size: 1.5rem !important;
             }
         }
-
-        /* ── End Tax & Compliance Section ── */
     </style>
 </head>
 
@@ -377,12 +414,12 @@
 
     <header>
         <div class="container nav-container">
-            <a href="#" class="logo">Yacoob Malik &amp; Co.</a>
+            <a href="#" class="logo">Yacoob Malik & Co.</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#tax">Tax</a></li>
+                <li><a href="#financial-growth">Financial Growth</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#contact" class="btn btn-navy" style="color: white;">Request a Callback</a></li>
@@ -391,16 +428,15 @@
     </header>
 
     <main>
-        <!-- SECTION: Hero -->
         <section id="home" class="hero">
             <div class="container hero-container">
                 <div class="hero-content">
                     <div
-                        style="background: var(--navy); color: white; display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 16px;">
-                        Manchester's Trusted Accountants</div>
+                        style="background: var(--navy); color: white; display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 24px;">
+                        Manchester's Trusted Accountants
+                    </div>
                     <h1>Expert accounting advice — tailored for your business</h1>
-                    <p>We provide expert accountancy, bookkeeping, payroll and tax services to small and medium-sized
-                        businesses across the UK.</p>
+                    <p>We provide expert accountancy, bookkeeping, payroll and tax services to small and medium-sized businesses across the UK.</p>
                     <a href="#contact" class="btn btn-teal">Get a Free Consultation</a>
                     <div class="hero-trust">
                         <span style="color: #f6ad55;">★★★★★</span>
@@ -408,63 +444,85 @@
                     </div>
                 </div>
                 <div style="flex: 1;">
-                    <img src="about-team.jpg" alt="Professional accounting team working in modern office"
-                        style="width: 100%; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    <img src="about-team.jpg" alt="Yacoob Malik & Co. team"
+                        style="width: 100%; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);"
+                        onerror="this.src='https://placehold.co/800x600/1a7a6e/white?text=Yacoob+Malik+%26+Co.'">
                 </div>
             </div>
         </section>
 
-        <!-- SECTION: Services -->
+        <!-- SERVICES SECTION - 3 CARDS (using same images as HR Accountants) -->
         <section id="services" class="services">
-            <div class="container">
-                <h2 class="section-headline">Everything your business needs, under one roof</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">📊</div>
-                        <h3>Tax Returns &amp; Self-Assessment</h3>
-                        <p>We handle personal and corporate tax returns accurately and on time, so you never face an
-                            HMRC penalty.</p>
+            <div class="services__grid">
+                <!-- Service 1: Tax Returns & Self-Assessment -->
+                <div class="service-card">
+                    <img class="service-card__image" 
+                         src="accounting_bookkeeping_img_1775123014583.jpg" 
+                         alt="Tax Returns & Self-Assessment"
+                         onerror="this.src='https://placehold.co/800x600/8B5A2B/white?text=Tax+Returns'">
+                    <div class="service-card__content">
+                        <h2 class="service-card__title">Tax Returns & Self-Assessment</h2>
+                        <p class="service-card__description">We handle personal and corporate tax returns accurately and on time, so you never face an HMRC penalty.</p>
+                        <ul class="service-card__list">
+                            <li>Personal tax returns</li>
+                            <li>Corporate tax filing</li>
+                            <li>HMRC compliance</li>
+                        </ul>
+                        <a href="#" class="service-card__btn">View More →</a>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">📒</div>
-                        <h3>Bookkeeping</h3>
-                        <p>We keep your accounts clean, current and compliant &mdash; giving you a clear picture of your
-                            financial health every month.</p>
+                </div>
+
+                <!-- Service 2: Bookkeeping & Payroll -->
+                <div class="service-card">
+                    <img class="service-card__image" 
+                         src="financial_advisory_img_1775123453811.jpg" 
+                         alt="Bookkeeping & Payroll"
+                         onerror="this.src='https://placehold.co/800x600/2c7a47/white?text=Bookkeeping'">
+                    <div class="service-card__content">
+                        <h2 class="service-card__title">Bookkeeping & Payroll</h2>
+                        <p class="service-card__description">We keep your accounts clean, current and compliant — and manage your payroll so you can focus on your team.</p>
+                        <ul class="service-card__list">
+                            <li>Monthly bookkeeping</li>
+                            <li>Payroll & RTI submissions</li>
+                            <li>Auto-enrolment pensions</li>
+                        </ul>
+                        <a href="#" class="service-card__btn">View More →</a>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">💼</div>
-                        <h3>Payroll Management</h3>
-                        <p>From RTI submissions to auto-enrolment, we manage your payroll so you can focus on your team,
-                            not the admin.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">📈</div>
-                        <h3>Business Advisory</h3>
-                        <p>Whether you're starting out or scaling up, we provide practical financial guidance to help
-                            you make confident decisions.</p>
+                </div>
+
+                <!-- Service 3: Business Advisory -->
+                <div class="service-card">
+                    <img class="service-card__image" 
+                         src="tax-compliance.jpg" 
+                         alt="Business Advisory"
+                         onerror="this.src='https://placehold.co/800x600/1E5C6B/white?text=Advisory'">
+                    <div class="service-card__content">
+                        <h2 class="service-card__title">Business Advisory</h2>
+                        <p class="service-card__description">Whether you're starting out or scaling up, we provide practical financial guidance to help you make confident decisions.</p>
+                        <ul class="service-card__list">
+                            <li>Cash flow forecasting</li>
+                            <li>Growth planning</li>
+                            <li>Profit improvement</li>
+                        </ul>
+                        <a href="#" class="service-card__btn">View More →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION: About -->
         <section id="about" class="about">
             <div class="container about-grid">
-                <div style="flex: 1;">
-                    <img src="pexels-shootsaga-31851560.jpg" alt="Our Professional Accounting Team"
-                        style="width: 100%; height: 400px; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <div>
+                    <img src="pexels-mike-alviza-205954711-11668001.jpg" alt="Yacoob Malik & Co. team"
+                        style="width: 100%; height: 600px; object-fit: cover; object-position: top; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);"
+                        onerror="this.src='https://placehold.co/800x1000/1a2e4a/white?text=Team'">
                 </div>
                 <div>
-                    <h2 style="font-size: 2.25rem; color: var(--navy); margin-bottom: 24px;">A firm that genuinely cares
-                        about your success</h2>
-                    <p>We're not a faceless corporation. We're a team of qualified, approachable accountants who take
-                        the time to understand your business. With over 20 years of experience serving UK businesses
-                        &mdash; from sole traders to growing SMEs &mdash; we pride ourselves on clear advice,
-                        transparent pricing, and being available when you need us.</p>
+                    <h2 style="font-size: 2.25rem; color: var(--navy); margin-bottom: 24px;">A firm that genuinely cares about your success</h2>
+                    <p>We're not a faceless corporation. We're a team of qualified, approachable accountants who take the time to understand your business. With over 20 years of experience serving UK businesses — from sole traders to growing SMEs — we pride ourselves on clear advice, transparent pricing, and being available when you need us.</p>
                     <ul style="list-style: none; margin-top: 24px;">
-                        <li style="margin-bottom: 12px; font-weight: 500;">✓ AAT &amp; ICAEW qualified</li>
-                        <li style="margin-bottom: 12px; font-weight: 500;">✓ Fixed monthly fees &mdash; no surprises
-                        </li>
+                        <li style="margin-bottom: 12px; font-weight: 500;">✓ AAT & ICAEW qualified</li>
+                        <li style="margin-bottom: 12px; font-weight: 500;">✓ Fixed monthly fees — no surprises</li>
                         <li style="margin-bottom: 12px; font-weight: 500;">✓ Dedicated account manager</li>
                         <li style="margin-bottom: 12px; font-weight: 500;">✓ MTD-ready and fully digital</li>
                     </ul>
@@ -472,134 +530,113 @@
             </div>
         </section>
 
-        <!-- TAX & COMPLIANCE SECTION — NEW ADDITION ONLY -->
-        <section id="tax" class="tax-compliance-section">
+        <section id="financial-growth" class="tax-compliance-section">
             <div class="tax-compliance-inner">
-                <div class="tax-compliance-content">
-                    <h2 class="tax-compliance-heading">Tax &amp; Compliance</h2>
-                    <p class="tax-compliance-body">
-                        Reliable tax and regulatory support to reduce risk and ensure peace of mind.
+                <div class="tax-compliance-content" style="gap: 24px;">
+                    <div
+                        style="background: rgba(0,0,0,0.06); color: #1a3a5c; display: inline-flex; align-items: center; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; gap: 6px; width: max-content;">
+                        <span style="color: #2a7f8f;">✦</span> Get In Touch
+                    </div>
+                    <h2 class="tax-compliance-heading" style="font-size: 3rem; line-height: 1.1;">
+                        Take Your <span
+                            style="font-family: Georgia, serif; font-style: italic; color: #2a7f8f; font-weight: 500;">Business</span>
+                        to<br>The Next Financial Level
+                    </h2>
+                    <p class="tax-compliance-body" style="font-size: 1.125rem; max-width: 480px;">
+                        Partner with Yacoob Malik & Co. for precise accounting and actionable financial insights that help your business grow.
                     </p>
-                    <ul class="tax-compliance-list">
-                        <li>
-                            <svg class="tax-compliance-check" viewBox="0 0 16 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            Tax preparation and filing
-                        </li>
-                        <li>
-                            <svg class="tax-compliance-check" viewBox="0 0 16 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            Compliance support
-                        </li>
-                        <li>
-                            <svg class="tax-compliance-check" viewBox="0 0 16 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            Tax efficiency advisory
-                        </li>
-                    </ul>
-                    <a href="#" class="tax-compliance-btn">View More &#8599;</a>
+                    <a href="#contact" class="tax-compliance-btn">
+                        Book a Free Consultation
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
                 </div>
-
                 <div class="tax-compliance-image">
-                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
-                        alt="Tax document with hand writing figures" loading="lazy" />
+                    <video src="https://res.cloudinary.com/dmxhywc5c/video/upload/v1775149954/sea_1_x2witv.mp4" autoplay
+                        muted loop playsinline style="width: 100%; border-radius: 12px;"></video>
                 </div>
             </div>
         </section>
-        <!-- END TAX & COMPLIANCE SECTION -->
 
-        <!-- SECTION: Testimonials -->
         <section id="testimonials" style="padding: 80px 20px; background: white;">
             <div class="container">
-                <h2 class="section-headline">What our clients say</h2>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+                <h2 class="section-headline"
+                    style="text-align: center; font-size: 2.25rem; color: var(--navy); margin-bottom: 56px;">What our clients say</h2>
+                <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
                     <div style="padding: 32px; border: 1px solid var(--border-color); border-radius: 12px;">
                         <p>⭐⭐⭐⭐⭐</p>
-                        <p style="font-style: italic; margin: 16px 0;">"Switching to Yacoob Malik &amp; Co. was the best
-                            decision I made for my business. They sorted out two years of backlog and haven't missed a
-                            deadline since."</p>
+                        <p style="font-style: italic; margin: 16px 0;">"Switching to Yacoob Malik & Co. was the best decision I made for my business. They sorted out two years of backlog and haven't missed a deadline since."</p>
                         <strong>James R., Construction</strong>
                     </div>
                     <div style="padding: 32px; border: 1px solid var(--border-color); border-radius: 12px;">
                         <p>⭐⭐⭐⭐⭐</p>
-                        <p style="font-style: italic; margin: 16px 0;">"Finally, an accountant who explains things in
-                            plain English. I always know exactly where my business stands."</p>
+                        <p style="font-style: italic; margin: 16px 0;">"Finally, an accountant who explains things in plain English. I always know exactly where my business stands."</p>
                         <strong>Sarah M., Retail</strong>
                     </div>
                     <div style="padding: 32px; border: 1px solid var(--border-color); border-radius: 12px;">
                         <p>⭐⭐⭐⭐⭐</p>
-                        <p style="font-style: italic; margin: 16px 0;">"Their payroll service alone saves me hours every
-                            month. Reliable, friendly, and great value."</p>
+                        <p style="font-style: italic; margin: 16px 0;">"Their payroll service alone saves me hours every month. Reliable, friendly, and great value."</p>
                         <strong>David T., Hospitality</strong>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION: CTA -->
         <section style="background: var(--navy); color: white; text-align: center; padding: 80px 20px;">
             <div class="container">
                 <h2 style="font-size: 2.5rem; margin-bottom: 16px;">Ready to take control of your finances?</h2>
-                <p style="margin-bottom: 32px; opacity: 0.9;">Book a free, no-obligation consultation with one of our
-                    experts today.</p>
-                <div style="display: flex; gap: 20px; justify-content: center;">
+                <p style="margin-bottom: 32px; opacity: 0.9;">Book a free, no-obligation consultation with one of our experts today.</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
                     <a href="#contact" class="btn" style="background: white; color: var(--navy);">Request a Callback</a>
                     <a href="#contact" class="btn btn-teal">Send Us a Message</a>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION: Contact -->
         <section id="contact" style="padding: 80px 20px; background: var(--light-grey);">
-            <div class="container"
+            <div class="container contact-grid"
                 style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 64px; align-items: center;">
                 <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: var(--shadow-subtle);">
-                    <form onsubmit="event.preventDefault(); alert('Enquiry sent!');">
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Full Name</label>
-                            <input type="text"
+                    <form onsubmit="event.preventDefault(); alert('Thank you! Yacoob Malik & Co. will be in touch soon.');">
+                        <div style="margin-bottom: 20px;"><label
+                                style="display: block; margin-bottom: 8px; font-weight: 500;">Full Name</label><input
+                                type="text"
                                 style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px;">
                         </div>
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Email</label>
-                            <input type="email"
+                        <div style="margin-bottom: 20px;"><label
+                                style="display: block; margin-bottom: 8px; font-weight: 500;">Email</label><input
+                                type="email"
                                 style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px;">
                         </div>
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">How can we
-                                help?</label>
-                            <select
+                        <div style="margin-bottom: 20px;"><label
+                                style="display: block; margin-bottom: 8px; font-weight: 500;">Phone</label><input
+                                type="tel"
+                                style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px;">
+                        </div>
+                        <div style="margin-bottom: 20px;"><label
+                                style="display: block; margin-bottom: 8px; font-weight: 500;">How can we help?</label><select
                                 style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px;">
                                 <option>Tax Returns</option>
                                 <option>Bookkeeping</option>
                                 <option>Payroll</option>
                                 <option>Business Advisory</option>
-                            </select>
-                        </div>
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Message</label>
-                            <textarea
+                                <option>General Enquiry</option>
+                            </select></div>
+                        <div style="margin-bottom: 20px;"><label
+                                style="display: block; margin-bottom: 8px; font-weight: 500;">Message</label><textarea
                                 style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; height: 120px;"></textarea>
                         </div>
                         <button type="submit" class="btn btn-navy" style="width: 100%;">Send Enquiry</button>
                     </form>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 32px; text-align: center;">
-                    <div>
-                        <strong>📞 0161 566 5934</strong>
+                    <div><strong>📞 0161 566 5934</strong>
                         <p>hello@yacoobmalik.co.uk</p>
                     </div>
-                    <div>
-                        <strong>📍 884 Hyde Rd, Gorton, Manchester M18 7LL</strong>
+                    <div><strong>📍 884 Hyde Rd, Gorton, Manchester M18 7LL</strong>
                         <p>Office hours: Mon–Fri, 9am–5:30pm</p>
                     </div>
                 </div>
@@ -608,15 +645,38 @@
     </main>
 
     <footer>
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <p>&copy; 2026 Yacoob Malik &amp; Co. Ltd. All rights reserved.</p>
-            <div style="display: flex; gap: 24px;">
-                <a href="#" style="color: #a0aec0;">Privacy Policy</a>
-                <a href="#" style="color: #a0aec0;">Terms of Use</a>
-            </div>
+        <div class="container"
+            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <p>© 2026 Yacoob Malik & Co. All rights reserved.</p>
+            <div style="display: flex; gap: 24px;"><a href="#" style="color: #a0aec0;">Privacy Policy</a><a href="#"
+                    style="color: #a0aec0;">Terms of Use</a></div>
         </div>
     </footer>
 
+    <script>
+        // Sticky Header Scroll Logic
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === "#" || targetId === "") return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
